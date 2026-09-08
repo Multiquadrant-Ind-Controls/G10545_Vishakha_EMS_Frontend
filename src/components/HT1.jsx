@@ -4,6 +4,91 @@ import { useNavigate } from "react-router-dom";
 const SvgComponent = (props) => {
   const navigate = useNavigate();
 
+  const [hoveredMeter, setHoveredMeter] = React.useState(null);
+
+  const [meterData, setMeterData] = React.useState({});
+const testMeterData = {
+  HT1: {
+    meterId: "1",
+    feederName: "HT01 - OUTGOING",
+    location: "11KV SWB",
+    route: "/ht1",
+  },
+
+  HT2: {
+    meterId: "2",
+    feederName: "HT02 - OUTGOING",
+    location: "11KV SWB",
+    route: "/ht2",
+  },
+
+  HT3: {
+    meterId: "3",
+    feederName: "HT03 - OUTGOING",
+    location: "11KV SWB",
+    route: "/ht3",
+  },
+
+  HT4: {
+    meterId: "4",
+    feederName: "HT04 - OUTGOING",
+    location: "11KV SWB",
+    route: "/ht4",
+  },
+
+  MFM1: {
+    meterId: "5",
+    feederName: "F1 - MFM",
+    location: "PCC",
+    route: "/mfm",
+  },
+
+  MFM2: {
+    meterId: "6",
+    feederName: "F2 - MFM",
+    location: "PCC",
+    route: "/mfm",
+  },
+
+  MFM3: {
+    meterId: "7",
+    feederName: "F3 - MFM",
+    location: "PCC",
+    route: "/mfm",
+  },
+
+  MFM4: {
+    meterId: "8",
+    feederName: "F4 - MFM",
+    location: "PCC",
+    route: "/mfm",
+  },
+
+  MFM5: {
+    meterId: "9",
+    feederName: "F5 - MFM",
+    location: "PCC",
+    route: "/mfm",
+  },
+};
+
+React.useEffect(() => {
+  setMeterData(testMeterData);
+}, []);
+
+const meterPositions = {
+  HT1: { x: 150, y: 177 },
+  HT2: { x: 228, y: 177 },
+  HT3: { x: 328, y: 177 },
+  HT4: { x: 402, y: 177 },
+
+  MFM1: { x: 69, y: 315 },
+  MFM2: { x: 185, y: 315 },
+  MFM3: { x: 340, y: 315 },
+  MFM4: { x: 424, y: 315 },
+  MFM5: { x: 528, y: 315 },
+};
+
   return (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -304,6 +389,8 @@ const SvgComponent = (props) => {
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("MFM1")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/mfm")}
 />
         <path
@@ -326,6 +413,8 @@ const SvgComponent = (props) => {
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("MFM2")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/mfm")}
 />
         <g data-cell-id="fcPfXyWjB4wBfr33pn1T-29">
@@ -372,6 +461,8 @@ const SvgComponent = (props) => {
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("MFM3")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/mfm")}
 />
         <g data-cell-id="fcPfXyWjB4wBfr33pn1T-33">
@@ -418,6 +509,8 @@ const SvgComponent = (props) => {
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("MFM4")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/mfm")}
 />
         <g data-cell-id="fcPfXyWjB4wBfr33pn1T-35">
@@ -464,6 +557,8 @@ const SvgComponent = (props) => {
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("MFM5")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/mfm")}
 />
         <path
@@ -579,15 +674,21 @@ const SvgComponent = (props) => {
   display: "none"
 }}
         />
-        <image
+        
+ <image
   href={mfmIcon}
   x="150"
   y="177"
   width="30"
   height="30"
   style={{ cursor: "pointer" }}
+  onMouseEnter={() => setHoveredMeter("HT1")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/ht1")}
 />
+
+ 
+</g>
         <path
           fill="#fff"
           stroke="#000"
@@ -607,6 +708,8 @@ const SvgComponent = (props) => {
   y="177"
   width="30"
   height="30"
+  onMouseEnter={() => setHoveredMeter("HT2")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/ht2")}
 />
         <path
@@ -628,6 +731,8 @@ const SvgComponent = (props) => {
   y="177"
   width="30"
   height="30"
+  onMouseEnter={() => setHoveredMeter("HT3")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/ht3")}
 />
         <path
@@ -649,6 +754,8 @@ const SvgComponent = (props) => {
   y="177"
   width="30"
   height="30"
+  onMouseEnter={() => setHoveredMeter("HT4")}
+  onMouseLeave={() => setHoveredMeter(null)}
   onClick={() => navigate("/ht4")}
 />
         <g data-cell-id="fcPfXyWjB4wBfr33pn1T-46">
@@ -1205,9 +1312,105 @@ const SvgComponent = (props) => {
             />
           </switch>
         </g>
-      </g>
-    </g>
-  </svg>
+              </g>
+     
+
+      {/* HT1 TOOLTIP - KEEP THIS AT THE VERY END */}
+     {/* COMMON METER TOOLTIP */}
+{hoveredMeter && meterData[hoveredMeter] && (
+  <foreignObject
+  x={
+  hoveredMeter === "MFM5"
+    ? meterPositions[hoveredMeter].x - 155
+    : meterPositions[hoveredMeter].x + 35
+}
+y={meterPositions[hoveredMeter].y - 60}
+    width="165"
+    height="140"
+    style={{
+      overflow: "visible",
+      pointerEvents: "none",
+    }}
+  >
+    <div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style={{
+        width: "145px",
+        background: "#fff",
+        borderRadius: "7px",
+        boxShadow: "0 3px 12px rgba(0,0,0,0.25)",
+        border: "1px solid #ddd",
+        padding: "9px 10px",
+        boxSizing: "border-box",
+        fontFamily: "Arial, sans-serif",
+        fontSize: "9px",
+        lineHeight: "1.4",
+        color: "#333",
+      }}
+    >
+
+      <div style={{ marginBottom: "6px" }}>
+        <span
+          style={{
+            display: "inline-block",
+            width: "65px",
+          }}
+        >
+          Meter ID
+        </span>
+        :
+        <b>{meterData[hoveredMeter].meterId}</b>
+      </div>
+
+      <div style={{ marginBottom: "6px" }}>
+        <span
+          style={{
+            display: "inline-block",
+            width: "65px",
+          }}
+        >
+          Feeder
+        </span>
+        :
+        <b>{meterData[hoveredMeter].feederName}</b>
+      </div>
+
+      <div style={{ marginBottom: "10px" }}>
+        <span
+          style={{
+            display: "inline-block",
+            width: "65px",
+          }}
+        >
+          Location
+        </span>
+        :
+        <b>{meterData[hoveredMeter].location}</b>
+      </div>
+
+      {/* <button
+        style={{
+          pointerEvents: "auto",
+          background: "#087cf0",
+          color: "#fff",
+          border: "none",
+          borderRadius: "4px",
+          padding: "3px 7px",
+          fontSize: "9px",
+          cursor: "pointer",
+        }}
+        onClick={() =>
+          navigate(meterData[hoveredMeter].route)
+        }
+      >
+        View Data
+      </button> */}
+
+    </div>
+  </foreignObject>
+)}
+
+    </svg>
   );
 };
 export default SvgComponent

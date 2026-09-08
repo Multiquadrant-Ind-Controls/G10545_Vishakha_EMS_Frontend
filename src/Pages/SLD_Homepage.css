@@ -1,0 +1,1035 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  color: #142653;
+
+  background: #f4f7fc;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.sld-home {
+  width: 100%;
+  height: 100vh;
+
+  padding: clamp(22px, 3vh, 34px) clamp(28px, 4vw, 64px);
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(94, 52, 205, 0.075),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 94% 92%,
+      rgba(24, 112, 190, 0.07),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #fbfcff 0%,
+      #f3f6fb 100%
+    );
+
+  position: relative;
+}
+
+
+/* subtle technical background */
+
+.sld-home::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      rgba(82, 102, 153, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(82, 102, 153, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: clamp(22px, 3vh, 32px);
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.title-line {
+  height: 2px;
+
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d3d9e8
+    );
+}
+
+.title-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #d3d9e8,
+      transparent
+    );
+}
+
+
+.title-content {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  white-space: nowrap;
+}
+
+
+.title-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #6435d5,
+      #43209f
+    );
+
+  box-shadow:
+    0 8px 20px rgba(80, 43, 180, 0.24);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+.title-content h1 {
+  margin: 0;
+
+  color: #102d70;
+
+  font-size: clamp(21px, 1.65vw, 27px);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+
+.title-content p {
+  margin: 5px 0 0;
+
+  color: #74819a;
+
+  font-size: clamp(11px, 0.75vw, 13px);
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+.main-icon {
+  width: 27px;
+  height: 27px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.arrow {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.9;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   FOUR MAIN CARDS
+========================================================= */
+
+.cards-container {
+  position: relative;
+
+  z-index: 2;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: clamp(14px, 1.3vw, 22px);
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.main-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding:
+    clamp(17px, 1.4vw, 24px);
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  border:
+    1px solid #e0e5ef;
+
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 7px 25px rgba(26, 43, 78, 0.07),
+    0 1px 3px rgba(26, 43, 78, 0.03);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+
+.main-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #cfd6e6;
+
+  box-shadow:
+    0 15px 35px rgba(26, 43, 78, 0.12),
+    0 3px 7px rgba(26, 43, 78, 0.04);
+}
+
+
+/* top accent */
+
+.main-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5b31c7,
+      #8867df
+    );
+}
+
+
+/* =========================================================
+   CARD COLOR THEMES
+========================================================= */
+
+/* DG */
+
+.dg-card {
+  background:
+    linear-gradient(
+      180deg,
+      #fffefd 0%,
+      #ffffff 45%,
+      #fffaf4 100%
+    );
+}
+
+.dg-card::before {
+  background:
+    linear-gradient(
+      90deg,
+      #db7b1d,
+      #f0b45d
+    );
+}
+
+
+/* 11KV */
+
+.mains-card {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfdff 100%
+    );
+}
+
+.mains-card::before {
+  background:
+    linear-gradient(
+      90deg,
+      #1477b3,
+      #59a9d8
+    );
+}
+
+
+/* HT */
+
+.ht-card {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fcfbff 100%
+    );
+}
+
+.ht-card::before {
+  background:
+    linear-gradient(
+      90deg,
+      #5b30c5,
+      #9273e4
+    );
+}
+
+
+/* PCC */
+
+.pcc-card {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fafdff 100%
+    );
+}
+
+.pcc-card::before {
+  background:
+    linear-gradient(
+      90deg,
+      #126fa9,
+      #5aabd5
+    );
+}
+
+
+/* =========================================================
+   CARD HEADING
+========================================================= */
+
+.main-card-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 0;
+
+  flex-shrink: 0;
+}
+
+
+.main-card-heading.clickable {
+  cursor: pointer;
+}
+
+
+.icon-box {
+  width: clamp(44px, 3vw, 52px);
+  height: clamp(44px, 3vw, 52px);
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* DG icon */
+
+.dg-card .icon-box {
+  color: #d47a1c;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff0dc,
+      #fff7ec
+    );
+
+  border:
+    1px solid #f7dfc2;
+}
+
+
+/* 11KV icon */
+
+.mains-card .icon-box {
+  color: #1473aa;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e4f3fd,
+      #f1f9fe
+    );
+
+  border:
+    1px solid #d3ebf8;
+}
+
+
+/* HT icon */
+
+.ht-card .icon-box {
+  color: #5d32c7;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eee9ff,
+      #f6f3ff
+    );
+
+  border:
+    1px solid #dfd7f7;
+}
+
+
+/* PCC icon */
+
+.pcc-card .icon-box {
+  color: #116da5;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e6f4fb,
+      #f3faff
+    );
+
+  border:
+    1px solid #d6eaf5;
+}
+
+
+/* =========================================================
+   CARD HEADING TEXT
+========================================================= */
+
+.heading-text {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.heading-text h2 {
+  margin: 0;
+
+  color: #15285b;
+
+  font-size: clamp(16px, 1.15vw, 20px);
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15px;
+
+  white-space: nowrap;
+}
+
+
+.heading-text span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #7c879c;
+
+  font-size: clamp(9px, 0.62vw, 11px);
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  letter-spacing: 0.75px;
+
+  white-space: nowrap;
+}
+
+
+.heading-arrow {
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #8993a7;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.main-card-heading:hover .heading-arrow {
+  color: #5730bf;
+
+  background: #f0ecff;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.main-description {
+  margin:
+    clamp(13px, 1.4vh, 18px)
+    0
+    clamp(13px, 1.5vh, 18px);
+
+  color: #7c879b;
+
+  font-size: clamp(10px, 0.7vw, 12px);
+
+  line-height: 1.45;
+
+  min-height: 34px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SOURCE DETAILS
+========================================================= */
+
+.source-details {
+  width: 100%;
+
+  margin-top: auto;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 11px;
+
+  background:
+    rgba(248, 250, 253, 0.8);
+
+  overflow: hidden;
+}
+
+
+.detail-row {
+  min-height: 39px;
+
+  padding:
+    8px 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  border-bottom:
+    1px solid #e8ecf2;
+}
+
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+
+.detail-row span {
+  color: #8a94a7;
+
+  font-size: clamp(9px, 0.62vw, 11px);
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+.detail-row strong {
+  color: #3a4b6d;
+
+  font-size: clamp(8px, 0.58vw, 10px);
+
+  font-weight: 800;
+
+  letter-spacing: 0.35px;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   VIEW SLD
+========================================================= */
+
+.view-label {
+  min-height: 33px;
+
+  margin-top:
+    clamp(10px, 1.2vh, 15px);
+
+  padding-top:
+    clamp(9px, 1.1vh, 12px);
+
+  border-top:
+    1px solid #e9edf3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #5833bd;
+
+  font-size: clamp(9px, 0.62vw, 11px);
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+
+.view-label:hover {
+  color: #4320a5;
+}
+
+
+.view-label .arrow {
+  width: 15px;
+  height: 15px;
+
+  transition: transform 0.2s ease;
+}
+
+
+.view-label:hover .arrow {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SUB GRID
+========================================================= */
+
+.sub-grid {
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  gap: clamp(8px, 0.8vw, 11px);
+
+  margin-top: 2px;
+}
+
+
+/* HT */
+
+.ht-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(2, minmax(0, 1fr));
+}
+
+
+/* PCC */
+
+.pcc-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(4, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   SUB CARDS
+========================================================= */
+
+.sub-card {
+  min-width: 0;
+  min-height: 0;
+
+  padding:
+    0 clamp(9px, 0.8vw, 13px);
+
+  border:
+    1px solid #e2e7ef;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f8faff
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 6px rgba(35, 53, 89, 0.025);
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+.sub-card span {
+  min-width: 0;
+
+  color: #2a3d67;
+
+  font-size: clamp(10px, 0.72vw, 13px);
+
+  line-height: 1.1;
+
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+
+.sub-card .arrow {
+  flex-shrink: 0;
+
+  width: 14px;
+  height: 14px;
+
+  color: #9aa3b4;
+
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+
+.sub-card:hover {
+  transform: translateX(3px);
+
+  border-color: #cfc4ef;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fbfaff,
+      #f5f1ff
+    );
+
+  box-shadow:
+    0 5px 13px rgba(71, 48, 137, 0.08);
+}
+
+
+.sub-card:hover span {
+  color: #5630bb;
+}
+
+
+.sub-card:hover .arrow {
+  color: #5b32c4;
+
+  transform: translateX(3px);
+}
+
+
+/* PCC slightly blue */
+
+.pcc-card .sub-card:hover {
+  border-color: #c6deec;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fbfdff,
+      #eef8fd
+    );
+}
+
+
+.pcc-card .sub-card:hover span {
+  color: #126d9f;
+}
+
+
+.pcc-card .sub-card:hover .arrow {
+  color: #126d9f;
+}
+
+
+/* =========================================================
+   CARD INTERNAL DECORATION
+========================================================= */
+
+.main-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -45px;
+  bottom: -55px;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(92, 65, 180, 0.045);
+
+  pointer-events: none;
+}
+
+
+.dg-card::after {
+  border-color:
+    rgba(214, 119, 25, 0.06);
+}
+
+
+.mains-card::after,
+.pcc-card::after {
+  border-color:
+    rgba(22, 111, 168, 0.055);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* Smaller desktop / laptop */
+
+@media (max-width: 1250px) {
+
+  .sld-home {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .cards-container {
+    gap: 14px;
+  }
+
+  .main-card {
+    padding: 16px;
+  }
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 950px) {
+
+  html,
+  body,
+  #root {
+    overflow: auto;
+  }
+
+  .sld-home {
+    height: auto;
+
+    min-height: 100vh;
+
+    overflow: visible;
+
+    padding: 25px;
+  }
+
+  .cards-container {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+      repeat(2, minmax(300px, 1fr));
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .sld-home {
+    padding: 20px 16px;
+  }
+
+  .page-title {
+    margin-bottom: 22px;
+  }
+
+  .title-line {
+    display: none;
+  }
+
+  .title-content {
+    width: 100%;
+  }
+
+  .title-content h1 {
+    font-size: 19px;
+  }
+
+  .title-content p {
+    font-size: 10px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto;
+  }
+
+  .main-card {
+    min-height: 280px;
+  }
+
+}
